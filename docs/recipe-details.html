@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bite - Recipe Details</title>
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/utilities.css">
+    <link rel="stylesheet" href="./css/recipe-details.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="container-fluid navbar navbar-expand-lg border-bottom border-body">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/images/BITE_logo.png" height="70" alt="Bite Logo">
+            </a>
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="recipes.html">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favorites.html">Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="explore.html">Explore</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO -->
+    <section class="container-fluid section-padding">
+        <div class="container-lg">
+            <div class="row align-items-center g-5">
+                <!-- IMAGE -->
+                <div class="col-lg-6">
+                    <img
+                        src="./assets/images/pasta_square.jpg"
+                        class="img-fluid recipe-hero-img"
+                        alt="Creamy Garlic Pasta">
+                </div>
+                <!-- CONTENT -->
+                <div class="col-lg-6">
+                    <span class="badge text-bg-warning mb-4 px-3 py-2">
+                        Italian
+                    </span>
+                    <h1 class="display-2 text-warning mb-4">
+                        Creamy Garlic Pasta
+                    </h1>
+                    <p class="lead recipe-description mb-5">
+                        Rich creamy pasta loaded with garlic, herbs, parmesan cheese,
+                        and a silky smooth sauce perfect for cozy cravings.
+                    </p>
+                    <!-- META -->
+                    <div class="recipe-meta d-flex flex-wrap gap-4 mb-5">
+                        <div class="meta-item">
+                            <i class="bi bi-star-fill text-warning me-2"></i>
+                            4.8 Rating
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-alarm text-info me-2"></i>
+                            20 mins
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-fire text-danger me-2"></i>
+                            540 kcal
+                        </div>
+                    </div>
+                    <!-- BUTTONS -->
+                    <div class="d-flex gap-3 flex-wrap">
+                        <button class="btn btn-warning btn-lg">
+                            Start Cooking
+                        </button>
+                        <button class="btn btn-outline-warning btn-lg">
+                            <i class="bi bi-heart me-2"></i>
+                            Save Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- INGREDIENTS + STEPS -->
+    <section class="container-fluid section-dark section-divider">
+        <div class="container-lg section-padding">
+            <div class="row g-5">
+                <!-- INGREDIENTS -->
+                <div class="col-lg-4">
+                    <div class="ingredients-box sticky-lg-top">
+                        <h2 class="display-6 text-warning mb-4">
+                            Ingredients
+                        </h2>
+                        <ul class="ingredient-list list-unstyled">
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                200g Pasta
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                4 Garlic Cloves
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                1 Cup Heavy Cream
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                Parmesan Cheese
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                Fresh Parsley
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill text-warning me-3"></i>
+                                Olive Oil
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- STEPS -->
+                <div class="col-lg-8">
+                    <h2 class="display-6 text-warning mb-5">
+                        Cooking Steps
+                    </h2>
+                    <!-- STEP -->
+                    <div class="step-card d-flex gap-4">
+                        <div class="step-number">
+                            1
+                        </div>
+                        <div>
+                            <h4 class="mb-3">
+                                Boil The Pasta
+                            </h4>
+                            <p>
+                                Bring salted water to a boil and cook the pasta
+                                until perfectly al dente. Drain and set aside.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP -->
+                    <div class="step-card d-flex gap-4">
+                        <div class="step-number">
+                            2
+                        </div>
+                        <div>
+                            <h4 class="mb-3">
+                                Prepare The Sauce
+                            </h4>
+                            <p>
+                                Sauté garlic in olive oil, then add heavy cream,
+                                parmesan cheese, and herbs for a silky smooth sauce.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP -->
+                    <div class="step-card d-flex gap-4">
+                        <div class="step-number">
+                            3
+                        </div>
+                        <div>
+                            <h4 class="mb-3">
+                                Mix Everything
+                            </h4>
+                            <p>
+                                Toss the cooked pasta into the sauce and coat evenly
+                                until creamy and flavorful.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- STEP -->
+                    <div class="step-card d-flex gap-4">
+                        <div class="step-number">
+                            4
+                        </div>
+                        <div>
+                            <h4 class="mb-3">
+                                Serve Fresh
+                            </h4>
+                            <p>
+                                Garnish with parsley and parmesan cheese.
+                                Serve hot and enjoy immediately.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NUTRITION -->
+    <section class="container-fluid">
+        <div class="container-lg section-padding">
+            <div class="text-center mb-5">
+                <h2 class="display-5 text-warning mb-4">
+                    Nutrition Facts
+                </h2>
+                <p class="lead">
+                    Everything you need to know about your meal.
+                </p>
+            </div>
+            <div class="row row-cols-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="nutrition-card text-center">
+                        <h3 class="text-warning mb-3">
+                            540
+                        </h3>
+                        <p class="mb-0">
+                            Calories
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="nutrition-card text-center">
+                        <h3 class="text-warning mb-3">
+                            18g
+                        </h3>
+                        <p class="mb-0">
+                            Protein
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="nutrition-card text-center">
+                        <h3 class="text-warning mb-3">
+                            64g
+                        </h3>
+                        <p class="mb-0">
+                            Carbs
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="nutrition-card text-center">
+                        <h3 class="text-warning mb-3">
+                            22g
+                        </h3>
+                        <p class="mb-0">
+                            Fat
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- RELATED RECIPES -->
+    <section class="container-fluid section-dark section-divider">
+        <div class="container-lg section-padding">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <div>
+                    <h2 class="display-5 text-warning mb-3">
+                        Related Recipes
+                    </h2>
+                    <p class="lead">
+                        More dishes you might love.
+                    </p>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+                <!-- CARD -->
+                <div class="col">
+                    <div class="recipe-card card h-100">
+                        <img
+                            src="./assets/images/home_burger_card.jpg"
+                            class="card-img-top recipe-card-img"
+                            alt="Burger">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-3">
+                                Spicy Chicken Burger
+                            </h3>
+                            <p class="recipe-description">
+                                Crispy chicken layered with spicy sauce and fresh veggies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD -->
+                <div class="col">
+                    <div class="recipe-card card h-100">
+                        <img
+                            src="./assets/images/home_pizza_card.jpg"
+                            class="card-img-top recipe-card-img"
+                            alt="Pizza">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-3">
+                                Cheese Burst Pizza
+                            </h3>
+                            <p class="recipe-description">
+                                Loaded pizza with gooey cheese and crispy crust.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD -->
+                <div class="col">
+                    <div class="recipe-card card h-100">
+                        <img
+                            src="./assets/images/recipes_recipe_card_lava_cake.jpg"
+                            class="card-img-top recipe-card-img"
+                            alt="Cake">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-3">
+                                Chocolate Lava Cake
+                            </h3>
+                            <p class="recipe-description">
+                                Warm chocolate cake with rich molten center.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="container-fluid border-top border-secondary-subtle">
+        <div class="container-lg py-5">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h3 class="text-warning mb-3">
+                        Bite
+                    </h3>
+                    <p>
+                        Discover recipes you'll crave again.
+                    </p>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-3">
+                        Explore
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Recipes</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Favorites</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-3">
+                        Categories
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Pizza</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Desserts</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Healthy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">
+                        Follow Us
+                    </h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-twitter-x"></i>
+                        <i class="bi bi-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
+     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

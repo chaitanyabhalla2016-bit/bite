@@ -1,0 +1,10 @@
+body{
+    background:#212529;
+    color:white;
+}
+.section-padding{
+    padding-block:8rem;
+}
+.about-text{
+    max-width:800px;
+}
