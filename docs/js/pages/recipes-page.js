@@ -40,6 +40,12 @@ function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is 
 // });
 
 filterWrapper.addEventListener('change', (event) => {
+    const filterConstraint = event.target.dataset.filter;
+    const filterConstraintValue = event.target.value;
+    // console.log(filterConstraint);
+    activeFilters[filterConstraint] = filterConstraintValue;
+    // console.log(activeFilters);
+    // return;
     
     if (activeFilters.category === "all" && activeFilters.cookTime === "all" && activeFilters.difficulty === "all") {
         displayRecipes();
