@@ -14,7 +14,7 @@ body{
     font-size: 18px;
     color: var(--bite-white-color);
 }
-*:not(.display-1):not(.display-2):not(.display-3):not(.display-4){
+*:not(.display-1):not(.display-2):not(.display-3):not(.display-4):not(.badge):not(.btn){
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     letter-spacing: -0.1px;

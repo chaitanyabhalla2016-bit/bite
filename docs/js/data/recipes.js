@@ -8,7 +8,6 @@ export const recipes = [
     image: "pasta_recipe.jpg",
     cookTime: 25,
     rating: 4.7,
-    calories: 520,
     servings: 2,
     ingredients: [
       "200g pasta",
@@ -25,6 +24,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "520 kcal",
       protein: "18g",
       carbs: "64g",
       fat: "22g"
@@ -42,7 +42,6 @@ export const recipes = [
     image: "chicken_biryani_recipe.jpg",
     cookTime: 50,
     rating: 4.9,
-    calories: 680,
     servings: 4,
     ingredients: [
       "500g chicken",
@@ -59,6 +58,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "680 kcal",
       protein: "34g",
       carbs: "72g",
       fat: "28g"
@@ -76,7 +76,6 @@ export const recipes = [
     image: "veggie_burger_recipe.jpg",
     cookTime: 20,
     rating: 4.5,
-    calories: 430,
     servings: 1,
     ingredients: [
       "Burger buns",
@@ -93,6 +92,7 @@ export const recipes = [
       "Serve fresh."
     ],
     nutrition: {
+      calories: "430 kcal",
       protein: "12g",
       carbs: "40g",
       fat: "16g"
@@ -110,7 +110,6 @@ export const recipes = [
     image: "paneer_butter_masala_recipe.jpg",
     cookTime: 35,
     rating: 4.8,
-    calories: 610,
     servings: 3,
     ingredients: [
       "Paneer",
@@ -127,6 +126,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "610 kcal",
       protein: "20g",
       carbs: "24g",
       fat: "34g"
@@ -134,7 +134,7 @@ export const recipes = [
     featured: true,
     trending: false
   },
-
+  
   {
     id: 5,
     title: "Sushi Rolls",
@@ -144,7 +144,6 @@ export const recipes = [
     image: "sushi_rolls_recipe.jpg",
     cookTime: 45,
     rating: 4.6,
-    calories: 390,
     servings: 2,
     ingredients: [
       "Sushi rice",
@@ -161,6 +160,7 @@ export const recipes = [
       "Slice and serve."
     ],
     nutrition: {
+      calories: "390 kcal",
       protein: "22g",
       carbs: "42g",
       fat: "10g"
@@ -178,7 +178,6 @@ export const recipes = [
     image: "margherita_pizza_recipe.jpg",
     cookTime: 30,
     rating: 4.8,
-    calories: 700,
     servings: 2,
     ingredients: [
       "Pizza dough",
@@ -195,6 +194,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "700 kcal",
       protein: "24g",
       carbs: "82g",
       fat: "30g"
@@ -212,7 +212,7 @@ export const recipes = [
     image: "grilled_salmon_recipe.jpg",
     cookTime: 25,
     rating: 4.7,
-    calories: 450,
+   
     servings: 2,
     ingredients: [
       "Salmon fillet",
@@ -229,6 +229,7 @@ export const recipes = [
       "Serve warm."
     ],
     nutrition: {
+       calories: "450 kcal",
       protein: "38g",
       carbs: "4g",
       fat: "24g"
@@ -246,7 +247,7 @@ export const recipes = [
     image: "chocolate_pancakes_recipe.jpg",
     cookTime: 15,
     rating: 4.9,
-    calories: 540,
+    
     servings: 2,
     ingredients: [
       "Flour",
@@ -263,6 +264,7 @@ export const recipes = [
       "Serve warm."
     ],
     nutrition: {
+      calories: "540 kcal",
       protein: "10g",
       carbs: "68g",
       fat: "22g"
@@ -280,7 +282,7 @@ export const recipes = [
     image: "caesar_salad_recipe.jpg",
     cookTime: 10,
     rating: 4.4,
-    calories: 280,
+    
     servings: 2,
     ingredients: [
       "Romaine lettuce",
@@ -296,6 +298,7 @@ export const recipes = [
       "Serve chilled."
     ],
     nutrition: {
+      calories: "280 kcal",
       protein: "8g",
       carbs: "18g",
       fat: "14g"
@@ -313,7 +316,7 @@ export const recipes = [
     image: "beef_tacos_recipe.jpg",
     cookTime: 20,
     rating: 4.6,
-    calories: 510,
+    
     servings: 3,
     ingredients: [
       "Taco shells",
@@ -330,6 +333,7 @@ export const recipes = [
       "Serve immediately."
     ],
     nutrition: {
+      calories: "510 kcal",
       protein: "26g",
       carbs: "36g",
       fat: "20g"
@@ -347,7 +351,7 @@ export const recipes = [
     image: "butter_croissant_recipe.jpg",
     cookTime: 40,
     rating: 4.5,
-    calories: 320,
+    
     servings: 2,
     ingredients: [
       "Flour",
@@ -364,6 +368,7 @@ export const recipes = [
       "Serve fresh."
     ],
     nutrition: {
+      calories: "320 kcal",
       protein: "6g",
       carbs: "34g",
       fat: "18g"
@@ -381,7 +386,7 @@ export const recipes = [
     image: "thai_green_curry_recipe.jpg",
     cookTime: 35,
     rating: 4.8,
-    calories: 590,
+    
     servings: 3,
     ingredients: [
       "Green curry paste",
@@ -398,6 +403,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "590 kcal",
       protein: "28g",
       carbs: "26g",
       fat: "32g"
@@ -415,7 +421,7 @@ export const recipes = [
     image: "mango_smoothie_bowl_recipe.jpg",
     cookTime: 8,
     rating: 4.7,
-    calories: 260,
+    
     servings: 1,
     ingredients: [
       "Mango",
@@ -431,6 +437,7 @@ export const recipes = [
       "Serve chilled."
     ],
     nutrition: {
+      calories: "260 kcal",
       protein: "6g",
       carbs: "42g",
       fat: "8g"
@@ -448,7 +455,7 @@ export const recipes = [
     image: "bbq_chicken_wings_recipe.jpg",
     cookTime: 40,
     rating: 4.9,
-    calories: 640,
+    
     servings: 3,
     ingredients: [
       "Chicken wings",
@@ -464,6 +471,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "640 kcal",
       protein: "40g",
       carbs: "18g",
       fat: "36g"
@@ -481,7 +489,7 @@ export const recipes = [
     image: "ramen_noodles_recipe.jpg",
     cookTime: 30,
     rating: 4.8,
-    calories: 560,
+    
     servings: 2,
     ingredients: [
       "Ramen noodles",
@@ -498,6 +506,7 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
+      calories: "560 kcal",
       protein: "22g",
       carbs: "58g",
       fat: "20g"

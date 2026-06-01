@@ -57,6 +57,9 @@ body{
 .meta-item{
     font-size:1.05rem;
 }
+.badge {
+    letter-spacing: 1.5px;
+}
 .btn{
     min-width:180px;
     border-radius:12px;
@@ -138,6 +141,9 @@ body{
 }
 .footer-link:hover{
     color:var(--bite-accent-color);
+}
+a.recipe-card{
+    text-decoration: none;
 }
 @media (max-width:991px){
     .recipe-hero-img{

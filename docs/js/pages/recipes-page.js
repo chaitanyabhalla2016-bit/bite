@@ -1,6 +1,7 @@
 import { recipes } from '../data/recipes.js';
 import { createRecipeCard } from '../utils/render.js';
-import { filterRecipes,applyFilters } from '../utils/filters.js';
+import { filterRecipes } from '../utils/filters.js';
+import { toggleFavorite, removeFavorite, getFavorites, isFavorite } from '../utils/favorites.js';
 
 const recipesContainer = document.querySelector('#recipesContainer');
 const recipeSearchFilter = document.querySelector('#recipeSearchFilter');
@@ -11,7 +12,8 @@ const filterWrapper = document.querySelector('.filter-wrapper');
 const activeFilters = {
    category: "all",
    difficulty: "all",
-   cookTime: "all"
+   cookTime: "all",
+   searchterm: ""
 };
 
 function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is waiting for your culinary magic! Add your favorite dishes and let's get cooking.`) {
@@ -35,28 +37,39 @@ function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is 
     }
 }
 
-// recipeSearchFilter.addEventListener('keyup', (event) => {
-//     console.log(event.target.value); 
-// });
+filterWrapper.addEventListener(
+    'change',
+    handleFilterUpdate
+);
 
-filterWrapper.addEventListener('change', (event) => {
-    const filterConstraint = event.target.dataset.filter;
-    const filterConstraintValue = event.target.value;
-    // console.log(filterConstraint);
-    activeFilters[filterConstraint] = filterConstraintValue;
-    // console.log(activeFilters);
-    // return;
-    
-    if (activeFilters.category === "all" && activeFilters.cookTime === "all" && activeFilters.difficulty === "all") {
-        displayRecipes();
-    } else {
-        // const filteredRecipes = filterRecipes(recipes, filterModeInput, fieldValueInput);
-        // console.log(filteredRecipes);
-        // displayRecipes(filteredRecipes,"No recipes found for this filter.");
-        const filteredRecipes = applyFilters(recipes,activeFilters);
-        console.log(filteredRecipes);
-        displayRecipes(filteredRecipes,"No recipes found for this filter.");
+filterWrapper.addEventListener(
+    'input',
+    handleFilterUpdate
+);
+recipesContainer.addEventListener(
+    'click', handleFavUpdate
+);
+function handleFavUpdate(event) {
+    if(event.target.classList.contains('favorite-icon')){
+        const itemId = Number(event.target.dataset.recipeId)
+        toggleFavorite(itemId);
+        applyFilters();
     }
-});
+}
+
+function handleFilterUpdate(event) {
+    const filterMode = event.target.dataset.filter;
+    if (!filterMode) return;
+    activeFilters[filterMode] = event.target.value;
+    applyFilters();
+}
+
+function applyFilters(){
+    const filteredRecipes = filterRecipes(recipes, activeFilters);
+    displayRecipes(
+        filteredRecipes,
+        "No recipes found for selected filters."
+    );
+}
 
 displayRecipes();
