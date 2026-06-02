@@ -17,6 +17,7 @@
             <a class="navbar-brand" href="#">
                 <img src="./assets/images/BITE_logo.png" height="70" alt="Bite Logo">
             </a>
+            
             <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -36,6 +37,10 @@
                     </li>
                 </ul>
             </div>
+            <div>
+                <i class="bi bi-heart-fill me-1 text-danger"></i>
+                <span id="favorite-count-badge">0</span>
+            </div>
         </div>
     </nav>
     <section class="container-fluid section-padding">
@@ -50,44 +55,9 @@
     </section>
     <section class="container-fluid">
         <div class="container-lg pb-5">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-                <div class="col">
-                    <div class="recipe-card card h-100">
-                        <img src="./assets/images/recipes_recipe_card_pasta.jpg"
-                            class="card-img-top recipe-card-img"
-                            alt="Recipe">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <span class="badge text-bg-warning">
-                                    Italian
-                                </span>
-                                <i class="bi bi-heart-fill text-danger"></i>
-                            </div>
-                            <h3 class="card-title mb-3">
-                                Creamy Garlic Pasta
-                            </h3>
-                            <p class="recipe-description">
-                                Rich creamy pasta loaded with garlic and parmesan flavor.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="favorites-container">
+                
             </div>
-            <!-- EMPTY STATE -->
-            <!--
-            <div class="empty-state text-center py-5">
-                <i class="bi bi-heart display-1 text-warning"></i>
-                <h2 class="display-5 mt-4">
-                    No Favorites Yet
-                </h2>
-                <p class="lead">
-                    Start saving recipes you love and they'll appear here.
-                </p>
-                <button class="btn btn-warning btn-lg mt-3">
-                    Explore Recipes
-                </button>
-            </div>
-            -->
         </div>
     </section>
         <footer class="container-fluid border-top border-secondary-subtle mt-5">
@@ -126,5 +96,7 @@
             </div>
         </div>
     </footer> 
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/pages/favorites-page.js"></script>
 </body>
 </html>

@@ -2,6 +2,13 @@ import { recipes } from '../data/recipes.js';
 import { createRecipeCard } from '../utils/render.js';
 import { filterRecipes } from '../utils/filters.js';
 import { toggleFavorite, removeFavorite, getFavorites, isFavorite } from '../utils/favorites.js';
+import {
+    updateFavoriteCount,
+    updateCopyrightYear
+} from '../common/common-scripts.js';
+
+updateFavoriteCount();
+updateCopyrightYear();
 
 const recipesContainer = document.querySelector('#recipesContainer');
 const recipeSearchFilter = document.querySelector('#recipeSearchFilter');
@@ -50,7 +57,8 @@ recipesContainer.addEventListener(
     'click', handleFavUpdate
 );
 function handleFavUpdate(event) {
-    if(event.target.classList.contains('favorite-icon')){
+    if (event.target.classList.contains('favorite-icon')) {
+        event.preventDefault();
         const itemId = Number(event.target.dataset.recipeId)
         toggleFavorite(itemId);
         applyFilters();

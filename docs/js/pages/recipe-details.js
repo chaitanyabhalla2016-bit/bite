@@ -1,5 +1,12 @@
 import {recipes} from '../data/recipes.js';
-import {recipeDetailsOverview,recipeDetailsIngredients,recipeDetailsSteps,recipeDetailsRelatedRecipes,recipeDetailsNutritions} from '../utils/render.js';
+import { recipeDetailsOverview, recipeDetailsIngredients, recipeDetailsSteps, recipeDetailsRelatedRecipes, recipeDetailsNutritions } from '../utils/render.js';
+import {
+    updateFavoriteCount,
+    updateCopyrightYear
+} from '../common/common-scripts.js';
+
+updateFavoriteCount();
+updateCopyrightYear();
 
 const itemId = new URLSearchParams(window.location.search).get('id');
 const recipe = recipes.find(recipe => recipe.id === Number(itemId));

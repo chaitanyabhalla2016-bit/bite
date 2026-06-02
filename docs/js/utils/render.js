@@ -11,7 +11,7 @@ export function createRecipeCard(recipe) {
                     src="./assets/images/${recipe.image}"
                     class="card-img-top recipe-card-img"
                     alt="${recipe.title}" loading="lazy">
-                <div class="position-absolute end-0 top-0 me-3 mt-3">
+                <div class="position-absolute z-3 end-0 top-0 me-3 mt-3">
                     <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe.id}"></i>
                 </div>
             </div>
@@ -167,4 +167,28 @@ export function recipeDetailsRelatedRecipes(filteredRecipes){
         </a>
     </div>`).join('');
     return relatedRecipesHTML;
+}
+
+export function favoriteRecipeCard(favRecipe) {
+    return `<div class="col">
+        <a class="recipe-card card h-100" href="./recipe-details.html?id=${favRecipe.id}">
+            <img src="./assets/images/${favRecipe.image}"
+                class="card-img-top recipe-card-img"
+                alt="${favRecipe.title}}">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="badge text-bg-warning">
+                        ${favRecipe.category}
+                    </span>
+                    <i class="favorite-icon position-relative z-3 bi  bi-heart-fill text-danger" data-recipe-id="${favRecipe.id}"></i>
+                </div>
+                <h3 class="card-title mb-3">
+                    ${favRecipe.title}
+                </h3>
+                <p class="recipe-description">
+                    ${favRecipe.description}
+                </p>
+            </div>
+        </a>
+    </div>`
 }
