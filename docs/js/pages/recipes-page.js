@@ -33,27 +33,30 @@ const activeFilters = {
 //     }
 // }
 
-async function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is waiting for your culinary magic! Add your favorite dishes and let's get cooking.`) {
+async function displayRecipes(emptyMessage=`Your recipe book is waiting for your culinary magic! Add your favorite dishes and let's get cooking.`) {
     try {
         recipesContainer.innerHTML = "";
+        
+        const response = await fetch(`${URI}/api/recipes`);
+        const recipesData = await response.json();
+        if(!response.ok){
+            throw new Error(recipesData.errorMessage || "Failed to fetch recipes. Please try again later.");
+            return;
+        }
+        const recipeList = recipesData.allRecipes;
+        console.log(recipeList);
         if (recipeList.length === 0) {
             recipesContainer.innerHTML = `<div class="w-100 alert alert-info" role="alert">${emptyMessage}</div>`;
             return;
         } 
-
-        const recipesList = await fetch(`${URI}/api/recipes`);
-        const recipesData = await recipesList.json();
-        if(!recipesList.ok){
-            throw new Error(recipesData.errorMessage || "Failed to fetch recipes. Please try again later.");
-            return;
-        }
         let recipeCards = "";
-            recipesData['allRecipes'].forEach(recipe => {
+            recipeList.forEach(recipe => {
                 recipeCards += createRecipeCard(recipe);
             });
         console.log(recipesData.successMessage);
         recipesContainer.innerHTML = recipeCards;
     } catch (error) {
+        console.log(error);
         recipesContainer.innerHTML = `
         <div class="alert alert-info" role="alert">
             ${error.message}
