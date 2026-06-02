@@ -1,15 +1,15 @@
-import {recipes} from '../data/recipes.js';
 import { recipeDetailsOverview, recipeDetailsIngredients, recipeDetailsSteps, recipeDetailsRelatedRecipes, recipeDetailsNutritions } from '../utils/render.js';
 import {
     updateFavoriteCount,
     updateCopyrightYear
 } from '../common/common-scripts.js';
+import CONFIG from '../common/config.js';
+const URI = CONFIG.URI;
 
 updateFavoriteCount();
 updateCopyrightYear();
 
-const itemId = new URLSearchParams(window.location.search).get('id');
-const recipe = recipes.find(recipe => recipe.id === Number(itemId));
+const itemId = new URLSearchParams(window.location.search).get('id') || 1;
 
 const recipeOverview = document.getElementById('recipe-details-overview');
 const recipeIngredients = document.getElementById('recipe-details-ingredients');
@@ -17,7 +17,22 @@ const recipeSteps = document.getElementById('recipe-details-steps');
 const recipeNutritions = document.getElementById('recipe-details-nutritions');
 const relatedRecipesStrip = document.getElementById('recipe-details-related-recipes');
 
-function showFullRecipeDetails(){
+async function showFullRecipeDetails(){
+        const recipesResponse = await fetch(`${URI}/api/recipes`);
+        if(!recipesResponse.ok){
+            console.log(`Something went wrong. Check backend!`);
+            return;
+        }
+        const recipiesData  = await recipesResponse.json();
+        const recipes = recipiesData .allRecipes;
+
+        const response = await fetch(`${URI}/api/recipes/${Number(itemId)}`);
+        if(!response.ok){
+            console.log(`Something went wrong. Check backend!`);
+            return;
+        }
+        const data = await response.json();
+        const recipe = data.recipeFound;
         if (!recipe) {
         document.body.innerHTML = `
             <div class="container py-5">

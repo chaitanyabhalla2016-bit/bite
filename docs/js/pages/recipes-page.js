@@ -2,10 +2,14 @@ import { recipes } from '../data/recipes.js';
 import { createRecipeCard } from '../utils/render.js';
 import { filterRecipes } from '../utils/filters.js';
 import { toggleFavorite, removeFavorite, getFavorites, isFavorite } from '../utils/favorites.js';
+import CONFIG from '../common/config.js';
 import {
     updateFavoriteCount,
     updateCopyrightYear
 } from '../common/common-scripts.js';
+
+const URI = CONFIG.URI;
+console.log(URI);
 
 updateFavoriteCount();
 updateCopyrightYear();
@@ -23,7 +27,13 @@ const activeFilters = {
    searchterm: ""
 };
 
-function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is waiting for your culinary magic! Add your favorite dishes and let's get cooking.`) {
+// async function getRecipes(){
+//     try{
+//         const recipeList = await fetch()
+//     }
+// }
+
+async function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is waiting for your culinary magic! Add your favorite dishes and let's get cooking.`) {
     try {
         recipesContainer.innerHTML = "";
         if (recipeList.length === 0) {
@@ -31,10 +41,17 @@ function displayRecipes(recipeList = recipes, emptyMessage=`Your recipe book is 
             return;
         } 
 
+        const recipesList = await fetch(`${URI}/api/recipes`);
+        const recipesData = await recipesList.json();
+        if(!recipesList.ok){
+            throw new Error(recipesData.errorMessage || "Failed to fetch recipes. Please try again later.");
+            return;
+        }
         let recipeCards = "";
-            recipeList.forEach(recipe => {
+            recipesData['allRecipes'].forEach(recipe => {
                 recipeCards += createRecipeCard(recipe);
             });
+        console.log(recipesData.successMessage);
         recipesContainer.innerHTML = recipeCards;
     } catch (error) {
         recipesContainer.innerHTML = `
