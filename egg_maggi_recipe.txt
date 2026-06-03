@@ -1,0 +1,17 @@
+{
+    "title": "Egg Maggi",
+    "description": "A blend of classic Maggi and Egg proteins.",
+    "category": "Thai",
+    "cookTime": "5",
+    "difficulty": "Easy",
+    "servings": "1",
+    "ingredients": "Maggi\nMasala\nEggs\nWater\nOnions\nTomato",
+    "steps": "Add Egg and Maggi to the boiling water\nStir for 2 minutes and let it boil.\nServe and Eat",
+    "calories": "270",
+    "protein": "120",
+    "carbs": "52",
+    "fat": "22",
+    "image": "egg_maggi.jpg"
+}
+
+Egg Maggi recipe.

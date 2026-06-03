@@ -48,10 +48,11 @@ const updateRecipe = async (req, res) => {
 
 const relatedRecipes = async (req, res) => {
     const cateogySelected = req.params.category;
-    const selectedCategoryRecipes = recipes.filter(recipe => recipe.category === cateogySelected);
+    const itemSelected = Number(req.params.id);
+    const selectedCategoryRecipes = recipes.filter(recipe => recipe.category === cateogySelected && recipe.id !== itemSelected);
     // console.log(selectedCategoryRecipes);
     // return;
-    res.status(400).json({ selectedCategory: selectedCategoryRecipes });
+    res.status(200).json({ selectedCategory: selectedCategoryRecipes });
 }
 
 export {getRecipes,getRecipeById,addRecipe,removeRecipe,updateRecipe,relatedRecipes}

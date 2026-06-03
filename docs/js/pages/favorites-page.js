@@ -1,7 +1,9 @@
-import { recipes } from '../data/recipes.js';
+// import { recipes } from '../data/recipes.js';
 import { getFavorites,removeFavorite } from '../utils/favorites.js';
 import { favoriteRecipeCard } from '../utils/render.js';
 const favoritesContainer = document.querySelector('#favorites-container');
+import CONFIG from '../common/config.js';
+let recipes = [];
 
 import {
     updateFavoriteCount,
@@ -11,8 +13,19 @@ import {
 updateFavoriteCount();
 updateCopyrightYear();
 
+async function fetchRecipes() {
+    const response = await fetch(`${CONFIG.URI}/api/recipes`);
+    if(!response.ok){
+        console.log(`Check backend code, inside controller`);
+        return;
+    }
+    const data = await response.json();
+    recipes = data.allRecipes;
+}
+
 export function displayFavoriteRecipes() {
     const favList = getFavorites();
+    console.log(favList);
     if (favList.length === 0) {
         favoritesContainer.innerHTML = `<div class="empty-state text-center py-5">
                 <i class="bi bi-heart display-1 text-warning"></i>
@@ -29,6 +42,7 @@ export function displayFavoriteRecipes() {
         return;
     }
     const filteredFavRecipes = recipes.filter(recipe => favList.includes(recipe.id));
+    console.log(filteredFavRecipes);    
     const favoriteRecipesCards = filteredFavRecipes.map(favRecipe => favoriteRecipeCard(favRecipe)).join('');
     favoritesContainer.innerHTML = favoriteRecipesCards;
 }
@@ -41,4 +55,9 @@ favoritesContainer.addEventListener('click', function (event) {
     }
 })
 
-displayFavoriteRecipes();
+async function init(){
+    await fetchRecipes();        
+    displayFavoriteRecipes();
+}
+
+init();

@@ -122,6 +122,7 @@ body{
 .footer-link:hover{
     color:var(--bite-accent-color);
 }
+
 @media (min-width:1600px){
     .container,
     .container-lg{
