@@ -3,7 +3,7 @@ import express from 'express';
 import recipeRoutes from './routes/recipesRoutes.js';
 import cors from 'cors';
 
-const allowedOrigins = ['http://localhost:7000', 'https://chaitanyabhalla2016-bit.github.io/bite/'];
+const allowedOrigins = ['http://localhost:7000', 'https://chaitanyabhalla2016-bit.github.io'];
 
 const app = express();
 const PORT = process.env.PORT;
