@@ -5,8 +5,19 @@
     "cookTime": "5",
     "difficulty": "Easy",
     "servings": "1",
-    "ingredients": "Maggi\nMasala\nEggs\nWater\nOnions\nTomato",
-    "steps": "Add Egg and Maggi to the boiling water\nStir for 2 minutes and let it boil.\nServe and Eat",
+    "ingredients":[ 
+        "Maggi"
+        "Masala"
+        "Eggs"
+        "Water"
+        "Onions"
+        "Tomato"
+    ],
+    "steps": [
+        "Add Egg and Maggi to the boiling water"
+        "Stir for 2 minutes and let it boil."
+        "Serve and Eat"
+    ],
     "calories": "270",
     "protein": "120",
     "carbs": "52",
@@ -15,3 +26,71 @@
 }
 
 Egg Maggi recipe.
+
+{
+      "title": "Lemon Tea",
+      "category": "Healthy",
+      "description": "Tea with nigh colestrol control with sweet taste of honey",
+      "cookTime": 3,
+      "servings": 2,
+      "image": "lemon_tea.jpg",
+      "ingredients": [
+        "2 cups of water",
+        "2 Lemon slices",
+        "Tea Powder",
+        "Mint Leaves",
+        "Honey",
+        "Black Salt (optional)"
+      ],
+      "steps": [
+        "Add tea leaves or powder to water and boil it.",
+        "Take Honey, Lemon Juice into glasses.",
+        "Mix boiled water with honey and lemon juice in the glasses",
+        "Add Mint leaves and Black Salt to the mix",
+        "Filter and drink"
+      ],
+      "nutrition": {
+        "calories": 40,
+        "protein": 2,
+        "carbs": 1,
+        "fat": 1
+      },
+      "featured": false,
+      "trending": false,
+      "rating": 0
+    }
+
+    Lemon tea
+
+    {
+      "title": "Dosa",
+      "category": "Indian",
+      "description": "Mouth watering pan bread with a mix of chutney.",
+      "cookTime": 17,
+      "servings": 5,
+      "image": "Dosa.jpg",
+      "ingredients": [
+        "Flour",
+        "Water",
+        "Salt",
+        "Oil"
+      ],
+      "steps": [
+        "Mix flour with water.",
+        "Add salt as per the requirement",
+        "Heat pan with Oil",
+        "Spread the batter with a spoon on the pan",
+        "Flip and Serve."
+      ],
+      "nutrition": {
+        "calories": 120,
+        "protein": 22,
+        "carbs": 13,
+        "fat": 14
+      },
+      "featured": false,
+      "trending": false,
+      "rating": 0
+    }
+
+    Dosa
