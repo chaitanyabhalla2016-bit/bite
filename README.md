@@ -2,6 +2,7 @@
 # 🍽️ Bite
 
 🚧 **Status: Active Development**
+
 **Bite** is currently under active development and continuous improvement.
 
 A modern recipe discovery and management platform built with Vanilla JavaScript, Express.js, and REST APIs. The core application is functional and deployed, including recipe browsing, filtering, favorites, recipe details, and backend API integration. New features and enhancements are being added incrementally as part of the learning and development journey.
