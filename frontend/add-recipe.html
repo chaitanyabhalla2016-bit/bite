@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bite - Explore Recipes</title>
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+     <!-- <link rel="stylesheet" href="./css/utilities.css"> -->
+    <link rel="stylesheet" href="./css/recipes.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="container-fluid navbar navbar-expand-lg border-bottom border-body">
+        <div class="container-lg">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/images/BITE_logo.png" height="70" alt="Bite Logo">
+            </a>
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar"  name="navbar">
+                <ul class="navbar-nav gap-2 ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="recipes.html">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favorites.html">Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="explore.html">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <i class="bi bi-heart-fill me-1 text-danger"></i>
+                <span id="favorite-  name="favorite-count-badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h2 class="card-title mb-4 text-center">Add a New Recipe</h2>
+                    
+                    <form id="add-recipe-form">
+                        
+                        <!-- Recipe Title -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label text-capitalize text-warning fs-5 fw-light">Recipe Title</label>
+                            <input type="text" class="form-control" id="title"  name="title" placeholder="e.g., Classic Chocolate Chip Cookies">
+                        </div>
+                        <!-- Recipe Description -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label text-capitalize text-warning fs-5 fw-light">Recipe Description</label>
+                            <input type="text" class="form-control" id="description"  name="description" placeholder="e.g., A blend of...">
+                        </div>
+
+                        <!-- Category & Prep Time -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="category" class="form-label text-capitalize text-warning fs-5 fw-light">Category</label>
+                                <select class="form-select" id="category"  name="category">
+                                    <option selected disabled value="">Choose category...</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="American">American</option>
+                                    <option value="Japanese">Japanese</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Healthy">Healthy</option>
+                                    <option value="Mexican">Mexican</option>
+                                    <option value="French">French</option>
+                                    <option value="Thai">Thai</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cookTime" class="form-label text-capitalize text-warning fs-5 fw-light">Prep Time (Minutes)</label>
+                                <input type="number" class="form-control" id="cookTime"  name="cookTime" placeholder="e.g., 30" min="1">
+                            </div>
+                        </div>
+
+                        <!-- Difficulty & Rating -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="difficulty" class="form-label text-capitalize text-warning fs-5 fw-light">Difficulty</label>
+                                <select class="form-select" id="difficulty"  name="difficulty">
+                                    <option selected disabled value="">Choose difficulty...</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <label for="rating" class="form-label text-capitalize text-warning fs-5 fw-light">Rating</label>
+                                <input type="number" class="form-control" id="rating"  name="rating" placeholder="e.g., 1 to 5" min="1" max="5">
+                            </div> -->
+                            <div class="col-md-6">
+                                <label for="servings" class="form-label text-capitalize text-warning fs-5 fw-light">Serves (Number)</label>
+                                <input type="number" class="form-control" id="servings"  name="servings" placeholder="e.g., 1 or 5 or ..." min="1">
+                            </div>
+                        </div>
+
+                        <!-- Ingredients Container -->
+                        <!-- <div class="mb-3">
+                            <label class="form-label text-capitalize text-warning fs-5 fw-light">Ingredients</label>
+                            <div id="ingredients-  name="ingredients-container">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="ingredients[]" placeholder="e.g., 2 cups flour">
+                                    <button class="btn btn-outline-danger remove-ingredient" type="button" disabled>Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="add-  name="add-ingredient">+ Add Ingredient</button>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label text-capitalize text-warning fs-5 fw-light">Ingredients</label>
+                            <textarea class="form-control" id="ingredients"  name="ingredients" rows="5" placeholder="Enter ingredients here. e.g., 2 cups flour..."></textarea>
+                        </div>
+
+                        <!-- Instructions Textarea -->
+                        <div class="mb-3">
+                            <label for="steps" class="form-label text-capitalize text-warning fs-5 fw-light">Instructions</label>
+                            <textarea class="form-control" id="steps"  name="steps" rows="5" placeholder="Enter step-by-step instructions here..."></textarea>
+                        </div>
+
+                        <!-- Nutrition values -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-3">
+                                <label for="calories" class="form-label text-capitalize text-warning fs-5 fw-light">calories (KCals)</label>
+                                <input type="number" class="form-control" id="calories"  name="calories" placeholder="Just number. e.g., 25" min="1">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="protein" class="form-label text-capitalize text-warning fs-5 fw-light">Protein (g)</label>
+                                <input type="number" class="form-control" id="protein"  name="protein" placeholder="Just number. e.g., 25" min="1">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="carbs" class="form-label text-capitalize text-warning fs-5 fw-light">carbs (g)</label>
+                                <input type="number" class="form-control" id="carbs"  name="carbs" placeholder="Just number. e.g., 25" min="1">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="fat" class="form-label text-capitalize text-warning fs-5 fw-light">fats (g)</label>
+                                <input type="number" class="form-control" id="fat"  name="fat" placeholder="Just number. e.g., 25" min="1">
+                            </div>
+                        </div>
+
+                        <!-- Recipe Image -->
+                        <div class="mb-4">
+                            <label for="image" class="form-label text-capitalize text-warning fs-5 fw-light">Recipe Image Filename</label>
+                            <input class="form-control" type="text" id="image"  name="image" accept="image/*">
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Save Recipe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid border-top border-secondary-subtle">
+        <div class="container-lg py-5">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h3 class="text-warning mb-3">
+                        Bite
+                    </h3>
+                    <p>
+                        Discover recipes you'll crave again.
+                    </p>
+                    <p>
+                        <i class="bi bi-c-circle"></i> BCV. <span id="current-  name="current-year"></span>
+                    </p>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-3">
+                        Explore
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Recipes</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Favorites</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-3">
+                        Categories
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Pizza</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Desserts</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="footer-link">Healthy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">
+                        Follow Us
+                    </h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-twitter-x"></i>
+                        <i class="bi bi-youtube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/pages/add-recipe-page.js"></script>
+</body>
+</html>

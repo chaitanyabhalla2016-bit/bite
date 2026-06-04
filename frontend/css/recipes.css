@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root{
+    --bite-primary-color:#ff6b35;
+    --bite-accent-color:#ffb703;
+    --bite-white-color:rgba(255,255,255,0.7);
+    --bs-warning:#ffb703;
+}
+body{
+    font-family:"Montserrat", sans-serif;
+    background:
+    radial-gradient(circle at top left, rgba(255,183,3,0.08), transparent 30%),
+    #212529;
+    letter-spacing:-0.3px;
+}
+.display-1,
+.display-2,
+.display-3,
+.display-4{
+    font-weight:300;
+    letter-spacing:-2px;
+}
+.navbar{
+    padding-block:1rem;
+    backdrop-filter:blur(10px);
+    background-color:rgba(33,37,41,0.8);
+}
+.navbar-brand img{
+    object-fit:contain;
+}
+.nav-link.active{
+    color:var(--bite-accent-color) !important;
+}
+.section-padding{
+    padding-block:6rem;
+}
+.section-dark{
+    background-color:rgba(255,255,255,0.015);
+}
+.section-divider{
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+.recipes-hero p{
+    max-width:700px;
+}
+.filter-wrapper{
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.02),
+        rgba(255,183,3,0.03)
+    );
+}
+.btn{
+    border-radius:12px;
+    padding-block:0.7rem;
+    font-weight:600;
+    transition:all 0.3s ease;
+}
+.btn:hover{
+    transform:translateY(-2px);
+}
+.recipe-card{
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:all 0.3s ease;
+    text-decoration:none;
+    cursor: pointer;
+}
+.recipe-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+.recipe-card-img{
+    height:280px;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+}
+.recipe-card:hover .recipe-card-img{
+    transform:scale(1.05);
+}
+.recipe-description{
+    color:rgba(255,255,255,0.7);
+}
+.recipe-meta{
+    color:rgba(255,255,255,0.75);
+}
+.favorite-icon{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    transition:all 0.3s ease;
+    cursor: pointer;
+}
+.favorite-icon:hover{
+    background:var(--bite-accent-color);
+    color:black;
+}
+.pagination .page-link{
+    background:rgba(255,255,255,0.03);
+    border-color:rgba(255,255,255,0.08);
+    color:white;
+}
+.pagination .page-item.active .page-link{
+    background:var(--bite-accent-color);
+    border-color:var(--bite-accent-color);
+    color:black;
+}
+.footer-link{
+    text-decoration:none;
+    color:rgba(255,255,255,0.7);
+    transition:color 0.3s ease;
+}
+.footer-link:hover{
+    color:var(--bite-accent-color);
+}
+
+@media (min-width:1600px){
+    .container,
+    .container-lg{
+        max-width:1550px !important;
+    }
+}
+@media (min-width:1366px){
+    .container,
+    .container-lg{
+        width:95%;
+        max-width:1300px;
+    }
+}
