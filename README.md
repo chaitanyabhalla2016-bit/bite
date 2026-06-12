@@ -19,11 +19,11 @@ A modern recipe discovery and management platform built with Vanilla JavaScript,
 * CRUD operations
 * Frontend–Backend integration
 * Deployment (GitHub Pages + Render)
+* Dynamic homepage content
+* Dynamic category generation
 
 ### Planned Enhancements
 
-* Dynamic homepage content
-* Dynamic category generation
 * Edit recipe functionality
 * MongoDB integration and data persistence
 * Pagination

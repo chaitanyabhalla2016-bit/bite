@@ -82,7 +82,7 @@
         <div class="container-lg section-padding">
             <h2 class="display-4 text-warning">Popular Categories</h2>
             <p class="lead">Explore recipes tailored to every craving.</p>
-            <div class="row row-cols-1 row-cols-lg-3 mt-2 g-4">
+            <div class="row row-cols-1 row-cols-lg-3 mt-2 g-4" id="popularCategoriesContainer">
                 <div class="col">
                     <div class="card">
                         <img src="./assets/images/home_pizza_card.jpg" class="card-img-top" alt="Pizza">
@@ -144,7 +144,7 @@
         <div class="container-lg section-padding">
             <h2 class="display-4 text-warning">Featured Recipes</h2>
             <p class="lead">Handpicked dishes everyone’s craving right now.</p>
-             <div class="row row-cols-1 row-cols-lg-3 mt-2 g-4">
+             <div class="row row-cols-1 row-cols-lg-3 mt-2 g-4" id="featuredRecipesContainer">
                 <div class="col">
                     <div class="card featured-card position-relative mb-3" style="max-width: 540px;">
                         <div class="row g-0">
@@ -208,6 +208,40 @@
             </div>    
         </div>
     </section>  
+    <section class="container-fluid section-darker">
+        <div class="container-lg section-padding">
+            <h2 class="display-4 text-warning text-center">
+                Bite By The Numbers
+            </h2>
+            <p class="lead text-center">
+                A growing collection of recipes and food inspiration.
+            </p>
+
+            <div class="row text-center mt-5 g-4">
+
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <h2 class="display-3 text-warning fw-bold" id="recipesCountContainer">500+</h2>
+                        <p class="lead mb-0">Recipes</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <h2 class="display-3 text-warning fw-bold" id="categoriesCountContainer">25+</h2>
+                        <p class="lead mb-0">Categories</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4">
+                        <h2 class="display-3 text-warning fw-bold" id="featuredCountContainer">100%</h2>
+                        <p class="lead mb-0">Featured Recipes</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <section class="container-fluid section-dark">
         <div class="container-lg section-padding">
             <h2 class="display-4 text-warning">Why Choose Bite</h2>

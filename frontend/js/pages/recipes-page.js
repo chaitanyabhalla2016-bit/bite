@@ -1,5 +1,6 @@
 // import { recipes } from '../data/recipes.js';
-import { createRecipeCard } from '../utils/render.js';
+import { createRecipeCard,setOptions } from '../utils/render.js';
+import { categoryList } from '../utils/misc.js';
 import { filterRecipes } from '../utils/filters.js';
 import { toggleFavorite, removeFavorite, getFavorites, isFavorite } from '../utils/favorites.js';
 import CONFIG from '../common/config.js';
@@ -104,10 +105,19 @@ function applyFilters(){
         "No recipes found for selected filters."
     );
 }
+function setCategories() {
+    const categoriesList =
+        setOptions(categoryList(recipes));
 
+    recipeCategoryFilter.innerHTML = `
+        <option value="all">All Categories</option>
+        ${categoriesList}
+    `;
+}
 async function init() {
     recipes = await getRecipes();
     displayRecipes(recipes);
+    setCategories();
 }
 
 init();

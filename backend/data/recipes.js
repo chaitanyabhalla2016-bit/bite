@@ -29,8 +29,7 @@ export const recipes = [
       carbs: "64g",
       fat: "22g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -63,8 +62,7 @@ export const recipes = [
       carbs: "72g",
       fat: "28g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -97,8 +95,7 @@ export const recipes = [
       carbs: "40g",
       fat: "16g"
     },
-    featured: false,
-    trending: false
+    featured: false
   },
 
   {
@@ -131,8 +128,7 @@ export const recipes = [
       carbs: "24g",
       fat: "34g"
     },
-    featured: true,
-    trending: false
+    featured: true
   },
   
   {
@@ -165,8 +161,7 @@ export const recipes = [
       carbs: "42g",
       fat: "10g"
     },
-    featured: false,
-    trending: true
+    featured: false
   },
 
   {
@@ -199,8 +194,7 @@ export const recipes = [
       carbs: "82g",
       fat: "30g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -234,8 +228,7 @@ export const recipes = [
       carbs: "4g",
       fat: "24g"
     },
-    featured: false,
-    trending: false
+    featured: false
   },
 
   {
@@ -269,8 +262,7 @@ export const recipes = [
       carbs: "68g",
       fat: "22g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -303,8 +295,7 @@ export const recipes = [
       carbs: "18g",
       fat: "14g"
     },
-    featured: false,
-    trending: false
+    featured: false
   },
 
   {
@@ -338,8 +329,7 @@ export const recipes = [
       carbs: "36g",
       fat: "20g"
     },
-    featured: false,
-    trending: true
+    featured: false
   },
 
   {
@@ -373,8 +363,7 @@ export const recipes = [
       carbs: "34g",
       fat: "18g"
     },
-    featured: false,
-    trending: false
+    featured: false
   },
 
   {
@@ -408,8 +397,7 @@ export const recipes = [
       carbs: "26g",
       fat: "32g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -442,8 +430,7 @@ export const recipes = [
       carbs: "42g",
       fat: "8g"
     },
-    featured: false,
-    trending: true
+    featured: false
   },
 
   {
@@ -476,8 +463,7 @@ export const recipes = [
       carbs: "18g",
       fat: "36g"
     },
-    featured: true,
-    trending: true
+    featured: true
   },
 
   {
@@ -511,7 +497,6 @@ export const recipes = [
       carbs: "58g",
       fat: "20g"
     },
-    featured: true,
-    trending: true
+    featured: true
   }
 ];

@@ -113,6 +113,7 @@ header{
 }
 .featured-card{
     min-height: 230px;
+    height: 100%;
 }
 .featured-card .card-body{
     border-left: 1px solid rgba(255,255,255,0.05);

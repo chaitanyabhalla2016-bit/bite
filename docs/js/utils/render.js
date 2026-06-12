@@ -192,3 +192,52 @@ export function favoriteRecipeCard(favRecipe) {
         </a>
     </div>`
 }
+
+export function homePopularCategories(recipesList) {
+
+    let popularRecipesCard = '';
+
+    recipesList.forEach(recipe => {
+        popularRecipesCard += `<div class="col">
+            <div class="card">
+                <img src="./assets/images/category_${recipe.category}.jpg" class="card-img-top" alt="${recipe.category} food">
+                <div class="card-body">
+                    <h3 class="card-title text-warning">${recipe.category}</h3>
+                    <p class="card-text">${recipe.count} Recipes</p>
+                </div>
+            </div>
+        </div>`;
+    });
+    return popularRecipesCard;
+}
+
+export function homeFeaturedRecipes(recipesList) {
+    let featuredRecipesCard = '';
+    recipesList.forEach(recipe => {
+        featuredRecipesCard += `<div class="col">
+            <div class="card featured-card position-relative" style="max-width: 540px;">
+                <div class="row g-0 h-100">
+                    <div class="col-md-4 h-100">
+                    <img src="./assets/images/${recipe.image}" class="img-fluid featured-card-img rounded-start" alt="${recipe.title}">
+                    </div>
+                    <div class="col-md-8 h-100">
+                    <div class="card-body justify-content-center d-flex flex-column h-100 p-2">
+                        <div class="favorite-icon position-absolute end-0 top-0 me-3 mt-1">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3 class="card-title text-warning">${recipe.title}</h3>
+                        <p class="card-text">${recipe.description}</p>
+                        <p class="card-text mb-0"><small class="text-body-secondary"><i class="bi bi-star-fill text-warning me-2"></i>${recipe.rating}</small></p>
+                        <p class="card-text"><small class="text-body-secondary"><i class="bi bi-alarm text-bite-primary me-2"></i>${recipe.cookTime}</small></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    });
+    return featuredRecipesCard;
+}
+
+export function setOptions(list) {
+    return list.map(li => `<option value=${li}>${li}</option>`).join('');
+}

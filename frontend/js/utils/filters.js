@@ -34,3 +34,8 @@ export function filterRecipes(recipeList, activeFilters) {
     }
     return filteredRecipes;
 }
+
+export function getFeaturedRecipes(recipesList){
+    const featuredRecipesList = recipesList.filter(recipe => recipe.featured === true);
+    return featuredRecipesList;
+}
