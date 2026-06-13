@@ -47,7 +47,9 @@ export function createRecipeCard(recipe) {
     `;
 }
 
-export function recipeDetailsOverview(recipeSelected){
+export function recipeDetailsOverview(recipeSelected) {
+    const favCheck = isFavorite(recipeSelected.id) ? 'bi-heart-fill text-warning' : 'bi-heart';
+    const saveBtnText = isFavorite(recipeSelected.id) ? 'Remove Favorite' : 'Save Recipe';
     if (!recipeSelected) return;
     return `<div class="col-lg-6">
         <img
@@ -86,9 +88,9 @@ export function recipeDetailsOverview(recipeSelected){
             <button class="btn btn-warning btn-lg">
                 Start Cooking
             </button>
-            <button class="btn btn-outline-warning btn-lg">
-                <i class="bi bi-heart me-2"></i>
-                Save Recipe
+            <button class="btn btn-outline-warning btn-lg save-recipe-btn" data-recipe-id="${recipeSelected.id}">
+                <i class="bi ${favCheck} me-2" data-recipe-id="${recipeSelected.id}"></i>
+                ${saveBtnText}
             </button>
         </div>
     </div>`;
@@ -214,6 +216,7 @@ export function homePopularCategories(recipesList) {
 export function homeFeaturedRecipes(recipesList) {
     let featuredRecipesCard = '';
     recipesList.forEach(recipe => {
+        const favCheck = isFavorite(recipe.id)?'bi-heart-fill text-warning':'bi-heart'
         featuredRecipesCard += `<div class="col">
             <div class="card featured-card position-relative" style="max-width: 540px;">
                 <div class="row g-0 h-100">
@@ -222,8 +225,8 @@ export function homeFeaturedRecipes(recipesList) {
                     </div>
                     <div class="col-md-8 h-100">
                     <div class="card-body justify-content-center d-flex flex-column h-100 p-2">
-                        <div class="favorite-icon position-absolute end-0 top-0 me-3 mt-1">
-                            <i class="bi bi-heart"></i>
+                        <div class="position-absolute z-3 end-0 top-0 me-3 mt-3">
+                            <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe.id}"></i>
                         </div>
                         <h3 class="card-title text-warning">${recipe.title}</h3>
                         <p class="card-text">${recipe.description}</p>
@@ -239,5 +242,5 @@ export function homeFeaturedRecipes(recipesList) {
 }
 
 export function setOptions(list) {
-    return list.map(li => `<option value=${li}>${li}</option>`).join('');
+    return list.map(li => `<option value="${li}">${li}</option>`).join('');
 }

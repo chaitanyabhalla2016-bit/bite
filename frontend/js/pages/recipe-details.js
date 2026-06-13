@@ -3,6 +3,7 @@ import {
     updateFavoriteCount,
     updateCopyrightYear
 } from '../common/common-scripts.js';
+import { toggleFavorite } from '../utils/favorites.js';
 import CONFIG from '../common/config.js';
 const URI = CONFIG.URI;
 
@@ -79,6 +80,19 @@ async function showFullRecipeDetails() {
     } catch (error) {
         console.error("Error updating UI:", error.message);
     }
+}
+
+recipeOverview.addEventListener('click', handleFavToggle);
+function handleFavToggle(event) {
+    const item = event.target;
+    if (item.classList.contains('save-recipe-btn')) {
+        const itemId = Number(item.dataset.recipeId);
+        console.log('recipe-details js, handleFavToggle fn:',itemId);
+        toggleFavorite(itemId);
+        showFullRecipeDetails();
+        updateFavoriteCount();
+    }
+    
 }
 
 showFullRecipeDetails();
