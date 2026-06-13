@@ -3,6 +3,7 @@ import {
     updateCopyrightYear
 } from '../common/common-scripts.js';
 
+import { toggleFavorite } from '../utils/favorites.js';
 import { homePopularCategories,homeFeaturedRecipes } from '../utils/render.js';
 import { getRecipeCategoryCount,categoryList,getTopFeaturedRecipes} from '../utils/misc.js';
 import { getFeaturedRecipes } from '../utils/filters.js';
@@ -15,6 +16,7 @@ const featuredRecipesContainer = document.querySelector('#featuredRecipesContain
 const categoriesCountContainer = document.querySelector('#categoriesCountContainer');
 const recipesCountContainer = document.querySelector('#recipesCountContainer');
 const featuredCountContainer = document.querySelector('#featuredCountContainer');
+
 
 updateFavoriteCount();
 updateCopyrightYear();
@@ -48,6 +50,16 @@ function getStats() {
     recipesCountContainer.textContent = recipes.length;
     featuredCountContainer.textContent = featuredRecipes.length;
 }
+
+featuredRecipesContainer.addEventListener('click', function (event) {
+    const item = event.target;
+    if (item.classList.contains('favorite-icon')) {
+        const itemId = Number(item.dataset.recipeId);
+        toggleFavorite(itemId);
+        displayFeaturedRecipes();
+        updateFavoriteCount();
+    }
+})
 
 async function init() {
     recipes = await getRecipes();

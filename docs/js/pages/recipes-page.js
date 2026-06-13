@@ -88,6 +88,7 @@ function handleFavUpdate(event) {
         const itemId = Number(event.target.dataset.recipeId)
         toggleFavorite(itemId);
         applyFilters();
+        updateFavoriteCount();
     }
 }
 
