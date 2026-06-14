@@ -51,6 +51,7 @@ favoritesContainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('favorite-icon')) {
         event.preventDefault();
         removeFavorite(Number(event.target.dataset.recipeId));
+        updateFavoriteCount();
         displayFavoriteRecipes();
     }
 })

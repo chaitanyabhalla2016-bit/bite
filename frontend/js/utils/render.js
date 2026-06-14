@@ -11,7 +11,8 @@ export function createRecipeCard(recipe) {
                     src="./assets/images/${recipe.image}"
                     class="card-img-top recipe-card-img"
                     alt="${recipe.title}" loading="lazy">
-                <div class="position-absolute z-3 end-0 top-0 me-3 mt-3">
+                <div class="w-100 d-flex justify-content-between position-absolute z-3 end-0 top-0 px-4 mt-3">
+                    <i class="bi bi-pencil-square edit-icon" data-recipe-id="${recipe.id}"></i>
                     <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe.id}"></i>
                 </div>
             </div>
@@ -31,14 +32,17 @@ export function createRecipeCard(recipe) {
                 <p class="card-text recipe-description">
                     ${recipe.description}
                 </p>
-                <div class="recipe-meta d-flex gap-4 mt-4">
+                <div class="recipe-meta d-flex justify-content-between align-items-center gap-4 mt-4">
                     <span>
                         <i class="bi bi-alarm text-info me-2"></i>
-                        ${recipe.cookTime}
+                        ${recipe.cookTime} Mins
                     </span>
                     <span>
                         <i class="bi bi-fire text-danger me-2"></i>
-                        ${recipe.nutrition.calories}
+                        ${recipe.nutrition.calories} KCal
+                    </span>
+                    <span class="delete-recipe-btn position-relative z-3">
+                        <i data-recipe-id="${recipe.id}" class="bi bi-trash3 text-danger" style="font-size:20px;"></i>
                     </span>
                 </div>
             </div>
@@ -80,7 +84,7 @@ export function recipeDetailsOverview(recipeSelected) {
             </div>
             <div class="meta-item">
                 <i class="bi bi-fire text-danger me-2"></i>
-                ${recipeSelected.nutrition.calories}
+                ${recipeSelected.nutrition.calories} KCal
             </div>
         </div>
         <!-- BUTTONS -->
@@ -129,20 +133,22 @@ export function recipeDetailsNutritions(recipe) {
 
     if (!recipe || !recipe.nutrition) return '';
     let nutritionHTML = '';
-
+    let measurementsIn = '';
     nutritionHTML += Object.entries(recipe.nutrition)
-        .map(([key, value]) => `
+        .map(([key, value]) => {
+            measurementsIn = (key === 'calories') ? 'KCal' : 'g';
+            return `
             <div class="col">
                 <div class="nutrition-card text-center">
                     <h3 class="text-warning mb-3">
-                        ${value}
+                        ${value} ${measurementsIn}
                     </h3>
                     <p class="mb-0">
                         ${key.charAt(0).toUpperCase() + key.slice(1)}
                     </p>
                 </div>
             </div>
-        `)
+        `})
         .join('');
 
     return nutritionHTML;

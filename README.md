@@ -9,27 +9,28 @@ A modern recipe discovery and management platform built with Vanilla JavaScript,
 
 ### Completed Features
 
-* Browse recipes
-* Recipe details page
-* Search recipes
-* Multi-filter support
-* Favorites system
-* Related recipes
-* Express.js REST API
-* CRUD operations
-* Frontend–Backend integration
-* Deployment (GitHub Pages + Render)
-* Dynamic homepage content
-* Dynamic category generation
+* ✅Browse recipes
+* ✅Recipe details page
+* ✅Search recipes
+* ✅Multi-filter support
+* ✅Favorites system
+* ✅Related recipes
+* ✅Express.js REST API
+* ✅CRUD operations
+* ✅Frontend–Backend integration
+* ✅Deployment (GitHub Pages + Render)
+* ✅Dynamic homepage content
+* ✅Dynamic category generation
+* ✅Edit recipe functionality
+* ✅Delete recipe functionality
 
 ### Planned Enhancements
 
-* Edit recipe functionality
-* MongoDB integration and data persistence
-* Pagination
-* User-submitted image uploads
-* Performance and UX improvements
-* Enhanced error handling
+* 🟥MongoDB integration and data persistence
+* 🟥Pagination
+* 🟥User-submitted image uploads
+* 🟥Performance and UX improvements
+* 🟥Enhanced error handling
 
 ### Note
 

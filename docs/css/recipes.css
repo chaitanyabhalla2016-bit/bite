@@ -87,7 +87,7 @@ body{
 .recipe-meta{
     color:rgba(255,255,255,0.75);
 }
-.favorite-icon{
+.favorite-icon,.edit-icon,.delete-recipe-btn{
     width:42px;
     height:42px;
     border-radius:50%;
@@ -100,10 +100,11 @@ body{
     transition:all 0.3s ease;
     cursor: pointer;
 }
-.favorite-icon:hover{
+.favorite-icon:hover,.edit-icon:hover,.delete-recipe-btn:hover{
     background:var(--bite-accent-color);
     color:black;
 }
+
 .pagination .page-link{
     background:rgba(255,255,255,0.03);
     border-color:rgba(255,255,255,0.08);

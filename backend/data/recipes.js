@@ -24,10 +24,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "520 kcal",
-      protein: "18g",
-      carbs: "64g",
-      fat: "22g"
+      calories: 520,
+      protein: 18,
+      carbs: 64,
+      fat: 22
     },
     featured: true
   },
@@ -57,10 +57,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "680 kcal",
-      protein: "34g",
-      carbs: "72g",
-      fat: "28g"
+      calories: 680,
+      protein: 34,
+      carbs: 72,
+      fat: 28
     },
     featured: true
   },
@@ -90,10 +90,10 @@ export const recipes = [
       "Serve fresh."
     ],
     nutrition: {
-      calories: "430 kcal",
-      protein: "12g",
-      carbs: "40g",
-      fat: "16g"
+      calories: 430,
+      protein: 12,
+      carbs: 40,
+      fat: 16
     },
     featured: false
   },
@@ -123,10 +123,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "610 kcal",
-      protein: "20g",
-      carbs: "24g",
-      fat: "34g"
+      calories: 610,
+      protein: 20,
+      carbs: 24,
+      fat: 34
     },
     featured: true
   },
@@ -156,10 +156,10 @@ export const recipes = [
       "Slice and serve."
     ],
     nutrition: {
-      calories: "390 kcal",
-      protein: "22g",
-      carbs: "42g",
-      fat: "10g"
+      calories: 390,
+      protein: 22,
+      carbs: 42,
+      fat: 10
     },
     featured: false
   },
@@ -189,10 +189,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "700 kcal",
-      protein: "24g",
-      carbs: "82g",
-      fat: "30g"
+      calories: 700,
+      protein: 24,
+      carbs: 82,
+      fat: 30
     },
     featured: true
   },
@@ -223,10 +223,10 @@ export const recipes = [
       "Serve warm."
     ],
     nutrition: {
-       calories: "450 kcal",
-      protein: "38g",
-      carbs: "4g",
-      fat: "24g"
+       calories: 450,
+      protein: 38,
+      carbs: 4,
+      fat: 24
     },
     featured: false
   },
@@ -257,10 +257,10 @@ export const recipes = [
       "Serve warm."
     ],
     nutrition: {
-      calories: "540 kcal",
-      protein: "10g",
-      carbs: "68g",
-      fat: "22g"
+      calories: 540,
+      protein: 10,
+      carbs: 68,
+      fat: 22
     },
     featured: true
   },
@@ -290,10 +290,10 @@ export const recipes = [
       "Serve chilled."
     ],
     nutrition: {
-      calories: "280 kcal",
-      protein: "8g",
-      carbs: "18g",
-      fat: "14g"
+      calories: 280,
+      protein: 8,
+      carbs: 18,
+      fat: 14
     },
     featured: false
   },
@@ -324,10 +324,10 @@ export const recipes = [
       "Serve immediately."
     ],
     nutrition: {
-      calories: "510 kcal",
-      protein: "26g",
-      carbs: "36g",
-      fat: "20g"
+      calories: 510,
+      protein: 26,
+      carbs: 36,
+      fat: 20
     },
     featured: false
   },
@@ -358,10 +358,10 @@ export const recipes = [
       "Serve fresh."
     ],
     nutrition: {
-      calories: "320 kcal",
-      protein: "6g",
-      carbs: "34g",
-      fat: "18g"
+      calories: 320,
+      protein: 6,
+      carbs: 34,
+      fat: 18
     },
     featured: false
   },
@@ -392,10 +392,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "590 kcal",
-      protein: "28g",
-      carbs: "26g",
-      fat: "32g"
+      calories: 590,
+      protein: 28,
+      carbs: 26,
+      fat: 32
     },
     featured: true
   },
@@ -425,10 +425,10 @@ export const recipes = [
       "Serve chilled."
     ],
     nutrition: {
-      calories: "260 kcal",
-      protein: "6g",
-      carbs: "42g",
-      fat: "8g"
+      calories: 260,
+      protein: 6,
+      carbs: 42,
+      fat: 8
     },
     featured: false
   },
@@ -458,10 +458,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "640 kcal",
-      protein: "40g",
-      carbs: "18g",
-      fat: "36g"
+      calories: 640,
+      protein: 40,
+      carbs: 18,
+      fat: 36
     },
     featured: true
   },
@@ -492,10 +492,10 @@ export const recipes = [
       "Serve hot."
     ],
     nutrition: {
-      calories: "560 kcal",
-      protein: "22g",
-      carbs: "58g",
-      fat: "20g"
+      calories: 560,
+      protein: 22,
+      carbs: 58,
+      fat: 20
     },
     featured: true
   }
