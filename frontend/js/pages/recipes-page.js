@@ -85,20 +85,20 @@ recipesContainer.addEventListener(
 function handleRecipeActions(event) {
     if (event.target.classList.contains('favorite-icon')) {
         event.preventDefault();
-        const itemId = Number(event.target.dataset.recipeId);
+        const itemId = event.target.dataset.recipeId;
         toggleFavorite(itemId);
         applyFilters();
         updateFavoriteCount();
     }
     if (event.target.classList.contains('edit-icon')) {
         event.preventDefault();
-        const itemId = Number(event.target.dataset.recipeId);
+        const itemId = event.target.dataset.recipeId;
         window.location.assign(`./add-recipe.html?id=${itemId}`);
     }
     if (event.target.closest('.delete-recipe-btn')) {
         event.preventDefault();
         console.log(event.target.dataset.recipeId);
-        const itemId = Number(event.target.dataset.recipeId);
+        const itemId = event.target.dataset.recipeId;
         window.confirm('Do you want to delete the recipe');
         if (window.confirm('Do you want to delete the recipe?')) {
             deleteRecipe(itemId);
@@ -130,22 +130,23 @@ function setCategories() {
         ${categoriesList}
     `;
 }
-async function deleteRecipe(rId) {
+async function deleteRecipe(rId){
     console.log(rId);
     if (localStorage.getItem('favorites').includes(rId)) {
-    if (isFavorite(rId)) {
-        removeFavorite(rId);
+        if (isFavorite(rId)) {
+            removeFavorite(rId);
+        }
+        const response = await fetch(`${URI}/api/recipes/${rId}`, {
+            method: "DELETE"
+        });
+        if (!response.ok) {
+            console.log('Something went wrong!');
+            return;
+        }
+        const data = await response.json();
+        console.log(data.successMessage);
+        init();
     }
-    const response = await fetch(`${URI}/api/recipes/${rId}`, {
-        method: "DELETE"
-    });
-    if (!response.ok) {
-        console.log('Something went wrong!');
-        return;
-    }
-    const data = await response.json();
-    console.log(data.successMessage);
-    init();
 }
 async function init() {
     recipes = await getRecipes();

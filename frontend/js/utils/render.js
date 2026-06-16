@@ -2,18 +2,18 @@
 import { isFavorite } from './favorites.js';
 
 export function createRecipeCard(recipe) {
-    const favCheck = isFavorite(recipe.id)?'bi-heart-fill text-warning':'bi-heart'
+    const favCheck = isFavorite(recipe._id)?'bi-heart-fill text-warning':'bi-heart'
     
    return `<div class="col">
-        <a href="./recipe-details.html?id=${recipe.id}" class="recipe-card card h-100">
+        <a href="./recipe-details.html?id=${recipe._id}" class="recipe-card card h-100">
             <div class="position-relative">
                 <img
                     src="./assets/images/${recipe.image}"
                     class="card-img-top recipe-card-img"
                     alt="${recipe.title}" loading="lazy">
                 <div class="w-100 d-flex justify-content-between position-absolute z-3 end-0 top-0 px-4 mt-3">
-                    <i class="bi bi-pencil-square edit-icon" data-recipe-id="${recipe.id}"></i>
-                    <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe.id}"></i>
+                    <i class="bi bi-pencil-square edit-icon" data-recipe-id="${recipe._id}"></i>
+                    <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe._id}"></i>
                 </div>
             </div>
             <div class="card-body p-4">
@@ -42,7 +42,7 @@ export function createRecipeCard(recipe) {
                         ${recipe.nutrition.calories} KCal
                     </span>
                     <span class="delete-recipe-btn position-relative z-3">
-                        <i data-recipe-id="${recipe.id}" class="bi bi-trash3 text-danger" style="font-size:20px;"></i>
+                        <i data-recipe-id="${recipe._id}" class="bi bi-trash3 text-danger" style="font-size:20px;"></i>
                     </span>
                 </div>
             </div>
@@ -159,7 +159,7 @@ export function recipeDetailsRelatedRecipes(filteredRecipes){
     if (!filteredRecipes || filteredRecipes.length === 0) return '';
     let relatedRecipesHTML = filteredRecipes.slice(0, 3).map( fRecipe => 
     `<div class="col">
-        <a href="./recipe-details.html?id=${fRecipe.id}" class="recipe-card card h-100">
+        <a href="./recipe-details.html?id=${fRecipe._id}" class="recipe-card card h-100">
             <img
                 src="./assets/images/${fRecipe.image}"
                 class="card-img-top recipe-card-img"
@@ -179,7 +179,7 @@ export function recipeDetailsRelatedRecipes(filteredRecipes){
 
 export function favoriteRecipeCard(favRecipe) {
     return `<div class="col">
-        <a class="recipe-card card h-100" href="./recipe-details.html?id=${favRecipe.id}">
+        <a class="recipe-card card h-100" href="./recipe-details.html?id=${favRecipe._id}">
             <img src="./assets/images/${favRecipe.image}"
                 class="card-img-top recipe-card-img"
                 alt="${favRecipe.title}}">
@@ -188,7 +188,7 @@ export function favoriteRecipeCard(favRecipe) {
                     <span class="badge text-bg-warning">
                         ${favRecipe.category}
                     </span>
-                    <i class="favorite-icon position-relative z-3 bi  bi-heart-fill text-danger" data-recipe-id="${favRecipe.id}"></i>
+                    <i class="favorite-icon position-relative z-3 bi  bi-heart-fill text-danger" data-recipe-id="${favRecipe._id}"></i>
                 </div>
                 <h3 class="card-title mb-3">
                     ${favRecipe.title}
@@ -222,7 +222,7 @@ export function homePopularCategories(recipesList) {
 export function homeFeaturedRecipes(recipesList) {
     let featuredRecipesCard = '';
     recipesList.forEach(recipe => {
-        const favCheck = isFavorite(recipe.id)?'bi-heart-fill text-warning':'bi-heart'
+        const favCheck = isFavorite(recipe._id)?'bi-heart-fill text-warning':'bi-heart'
         featuredRecipesCard += `<div class="col">
             <div class="card featured-card position-relative" style="max-width: 540px;">
                 <div class="row g-0 h-100">
@@ -232,7 +232,7 @@ export function homeFeaturedRecipes(recipesList) {
                     <div class="col-md-8 h-100">
                     <div class="card-body justify-content-center d-flex flex-column h-100 p-2">
                         <div class="position-absolute z-3 end-0 top-0 me-3 mt-3">
-                            <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe.id}"></i>
+                            <i class="favorite-icon bi ${favCheck}" data-recipe-id="${recipe._id}"></i>
                         </div>
                         <h3 class="card-title text-warning">${recipe.title}</h3>
                         <p class="card-text">${recipe.description}</p>

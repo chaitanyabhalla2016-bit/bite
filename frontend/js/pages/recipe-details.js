@@ -21,7 +21,7 @@ const relatedRecipesStrip = document.getElementById('recipe-details-related-reci
 async function showFullRecipeDetails() {
     try {
         // 1. Fetch the primary recipe data first to determine its category
-        const recipeResponse = await fetch(`${URI}/api/recipes/${Number(itemId)}`);
+        const recipeResponse = await fetch(`${URI}/api/recipes/${itemId}`);
         if (!recipeResponse.ok) {
             throw new Error('Failed to fetch primary recipe details');
         }

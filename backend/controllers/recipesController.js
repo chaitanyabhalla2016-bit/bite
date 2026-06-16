@@ -1,25 +1,38 @@
 import express from 'express';
-import {recipes} from '../data/recipes.js';
+import { recipes } from '../data/recipes.js';
+import RecipeModel from '../models/Recipe.js';
 
-const getRecipes = async (req,res) =>{
-    return res.status(200).json({successMessage:`Recipes data found!`,allRecipes:recipes});
+const getRecipes = async (req, res) => {
+    try {
+        const action = await RecipeModel.find();
+        console.log(action);
+        return res.status(200).json({successMessage:`Recipes data found!`,allRecipes:action});
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({errorMessage:'Something went wrong!'})
+    }
 }
-const getRecipeById = async (req,res) =>{
-    const selectedRecipeId = Number(req.params.id);
-    const foundRecipe = recipes.find(recipe =>recipe.id === selectedRecipeId);
+const getRecipeById = async (req, res) => {
+    const selectedRecipeId = req.params.id;
+    const foundRecipe = await RecipeModel.findById(selectedRecipeId);
     res.status(200).json({recipeFound:foundRecipe});
 }
+
 const addRecipe = async (req, res) => {
-    const newRecipe = {
-        id: recipes.length + 1,
-        ...req.body
-    }
-    recipes.push(newRecipe);
-    
-    res.status(201).json({
-        successMessage: 'Recipe added successfully.',
-        recipe: newRecipe
-    });
+    try {
+        const newRecipe = {
+            ...req.body
+        }
+        const action = await RecipeModel.create(newRecipe);
+        res.status(201).json({
+            successMessage: 'Recipe added successfully.',
+            recipe: newRecipe
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ errorMessage: 'Something went wrong!' });
+    }    
 }
 
 const removeRecipe = async (req, res) => {

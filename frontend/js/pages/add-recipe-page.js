@@ -15,11 +15,11 @@ const itemIdParam = params.get('id');
 
 const editMode = !!itemIdParam;
 
-let itemId = null;
+let itemId = '';
 let currentRecipe = null;
 
 if (editMode) {
-    itemId = Number(itemIdParam);
+    itemId = itemIdParam;
     loadRecipeForEdit();
 }
 
@@ -102,11 +102,13 @@ async function addRecipe(event) {
             new FormData(addRecipeForm)
         );
 
+        console.log(formData);
+
         const recipeObject = {
             title: formData.title,
             category: formData.category,
             description: formData.description,
-
+            // featured: formData.featured === 'on',
             cookTime: Number(formData.cookTime),
             servings: Number(formData.servings),
 
@@ -126,24 +128,15 @@ async function addRecipe(event) {
                 carbs: Number(formData.carbs),
                 fat: Number(formData.fat)
             },
-
-            featured: editMode
-                ? currentRecipe.featured
-                : false,
-
+            featured: formData.featured === 'on',
             trending: editMode
                 ? currentRecipe.trending
                 : false,
-
             rating: editMode
                 ? currentRecipe.rating
                 : 0
         };
-
-        console.log(recipeObject);
-
         if (!editMode) {
-
             const response = await fetch(`${URI}/api/recipes`, {
                 method: 'POST',
                 headers: {
