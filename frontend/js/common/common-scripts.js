@@ -1,14 +1,13 @@
 // app.js
 import { getFavorites } from '../utils/favorites.js';
+import { animateCounter } from '../utils/misc.js';
 
 export function updateFavoriteCount() {
-    const badge = document.querySelector(
-        '#favorite-count-badge'
-    );
-
+    const badge = document.querySelector('#favorite-count-badge');
     if (!badge) return;
-
-    badge.textContent = getFavorites().length;
+    const targetNumber = getFavorites().length;
+    // Simply pass the badge and target count (no suffix needed here)
+    animateCounter(badge, targetNumber);
 }
 
 export function updateCopyrightYear() {

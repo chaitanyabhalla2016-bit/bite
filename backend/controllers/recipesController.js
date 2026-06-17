@@ -5,7 +5,7 @@ import RecipeModel from '../models/Recipe.js';
 const getRecipes = async (req, res) => {
     try {
         const action = await RecipeModel.find();
-        console.log(action);
+        // console.log(action);
         return res.status(200).json({successMessage:`Recipes data found!`,allRecipes:action});
         
     } catch (error) {
@@ -36,9 +36,10 @@ const addRecipe = async (req, res) => {
 }
 
 const removeRecipe = async (req, res) => {
-    const recipeId = Number(req.params.id);
-    const recipeIndex = recipes.findIndex(recipe => recipe.id === recipeId);
-    recipes.splice(recipeIndex,1);
+    const recipeId = req.params.id;
+    // const recipeIndex = recipes.findIndex(recipe => recipe.id === recipeId);
+    // recipes.splice(recipeIndex,1);
+    await RecipeModel.findByIdAndDelete(recipeId);
     
     res.status(200).json({
         successMessage: 'Recipe removed successfully.'
@@ -46,13 +47,13 @@ const removeRecipe = async (req, res) => {
 }
 
 const updateRecipe = async (req, res) => {
-    const recipeId = Number(req.params.id);
-    const recipeIndex = recipes.findIndex(recipe => recipe.id === recipeId);
+    const recipeId = req.params.id;
+    // const recipeIndex = recipes.findIndex(recipe => recipe.id === recipeId);
     const updatedRecipe = {
-        id:recipeId,
         ...req.body
-    }
-    recipes[recipeIndex] = updatedRecipe;
+    };
+    await RecipeModel.findByIdAndUpdate(recipeId,updatedRecipe);
+    // recipes[recipeIndex] = updatedRecipe;
     res.status(200).json({
         successMessage: 'Recipe updated successfully.',
         recipe: updatedRecipe
@@ -61,11 +62,20 @@ const updateRecipe = async (req, res) => {
 
 const relatedRecipes = async (req, res) => {
     const cateogySelected = req.params.category;
-    const itemSelected = Number(req.params.id);
-    const selectedCategoryRecipes = recipes.filter(recipe => recipe.category === cateogySelected && recipe.id !== itemSelected);
+    const itemSelected = req.params.id;
+    const selectedCategoryRecipes = await RecipeModel.find({category:cateogySelected,_id:{$ne:itemSelected}}).limit(3);
     // console.log(selectedCategoryRecipes);
     // return;
     res.status(200).json({ selectedCategory: selectedCategoryRecipes });
 }
 
-export {getRecipes,getRecipeById,addRecipe,removeRecipe,updateRecipe,relatedRecipes}
+const filteredRecipes = async (req,res) => {
+    const paramsObj = req.params.filters;
+    console.log(typeof(JSON.parse(paramsObj)));
+    // for (let x in req.params.filters){
+    //     console.log(`${x}: ${req.params.filters[x]}`);
+    // }
+    return;
+}
+
+export {getRecipes,getRecipeById,addRecipe,removeRecipe,updateRecipe,relatedRecipes,filteredRecipes}

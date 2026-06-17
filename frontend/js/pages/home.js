@@ -5,7 +5,7 @@ import {
 
 import { toggleFavorite } from '../utils/favorites.js';
 import { homePopularCategories,homeFeaturedRecipes } from '../utils/render.js';
-import { getRecipeCategoryCount,categoryList,getTopFeaturedRecipes} from '../utils/misc.js';
+import { getRecipeCategoryCount,categoryList,getTopFeaturedRecipes,animateCounter} from '../utils/misc.js';
 import { getFeaturedRecipes } from '../utils/filters.js';
 import CONFIG from '../common/config.js';
 
@@ -44,11 +44,15 @@ function displayFeaturedRecipes() {
 }
 
 function getStats() {
-    const categoriesCount = categoryList(recipes);
-    const featuredRecipes = getFeaturedRecipes(recipes);
-    categoriesCountContainer.textContent = categoriesCount.length;
-    recipesCountContainer.textContent = recipes.length;
-    featuredCountContainer.textContent = featuredRecipes.length;
+    // 1. Extract your data lengths exactly as you did before
+    const categoriesCount = categoryList(recipes).length; 
+    const totalRecipesCount = recipes.length;
+    const featuredRecipesCount = getFeaturedRecipes(recipes).length;
+
+    // 2. Animate them smoothly with their respective HTML suffixes (+ or %)
+    animateCounter(categoriesCountContainer, categoriesCount, '+');
+    animateCounter(recipesCountContainer, totalRecipesCount, '+');
+    animateCounter(featuredCountContainer, featuredRecipesCount, '%');
 }
 
 featuredRecipesContainer.addEventListener('click', function (event) {

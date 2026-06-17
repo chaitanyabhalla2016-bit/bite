@@ -86,9 +86,10 @@ function handleRecipeActions(event) {
     if (event.target.classList.contains('favorite-icon')) {
         event.preventDefault();
         const itemId = event.target.dataset.recipeId;
+        console.log(itemId);
         toggleFavorite(itemId);
         applyFilters();
-        updateFavoriteCount();
+        init();
     }
     if (event.target.classList.contains('edit-icon')) {
         event.preventDefault();
@@ -99,7 +100,6 @@ function handleRecipeActions(event) {
         event.preventDefault();
         console.log(event.target.dataset.recipeId);
         const itemId = event.target.dataset.recipeId;
-        window.confirm('Do you want to delete the recipe');
         if (window.confirm('Do you want to delete the recipe?')) {
             deleteRecipe(itemId);
             updateFavoriteCount();
@@ -108,20 +108,25 @@ function handleRecipeActions(event) {
 }
 
 function handleFilterUpdate(event) {
+    console.log('Filter handle function');
     const filterMode = event.target.dataset.filter;
+    console.log(`Filter Mode: ${filterMode}`);
     if (!filterMode) return;
     activeFilters[filterMode] = event.target.value;
     applyFilters();
 }
 
-function applyFilters(){
-    const filteredRecipes = filterRecipes(recipes, activeFilters);
+async function applyFilters(){
+
+    // const filteredRecipes = filterRecipes(recipes, activeFilters);
+    const filteredRecipes = await fetch(`${URI}/api/recipes/filter/${activeFilters}`);
     displayRecipes(
         filteredRecipes,
         "No recipes found for selected filters."
     );
 }
 function setCategories() {
+    console.log('Setting categories...', recipes);
     const categoriesList =
         setOptions(categoryList(recipes));
 
@@ -132,26 +137,25 @@ function setCategories() {
 }
 async function deleteRecipe(rId){
     console.log(rId);
-    if (localStorage.getItem('favorites').includes(rId)) {
-        if (isFavorite(rId)) {
-            removeFavorite(rId);
-        }
-        const response = await fetch(`${URI}/api/recipes/${rId}`, {
-            method: "DELETE"
-        });
-        if (!response.ok) {
-            console.log('Something went wrong!');
-            return;
-        }
-        const data = await response.json();
-        console.log(data.successMessage);
-        init();
+    if (isFavorite(rId)) {
+        removeFavorite(rId);
     }
+    const response = await fetch(`${URI}/api/recipes/${rId}`, {
+        method: "DELETE"
+    });
+    if (!response.ok) {
+        console.log('Something went wrong!');
+        return;
+    }
+    const data = await response.json();
+    console.log(data.successMessage);
+    init();
 }
 async function init() {
-    recipes = await getRecipes();
+    await getRecipes();
     displayRecipes(recipes);
     setCategories();
+    updateFavoriteCount();
 }
 
 init();

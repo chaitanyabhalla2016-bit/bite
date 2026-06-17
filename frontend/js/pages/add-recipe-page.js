@@ -156,7 +156,7 @@ async function addRecipe(event) {
             event.target.reset();
 
         } else {
-
+            console.log('Update Function activated.');
             const response = await fetch(`${URI}/api/recipes/${itemId}`, {
                 method: 'PUT',
                 headers: {

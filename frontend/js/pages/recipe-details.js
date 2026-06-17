@@ -43,7 +43,7 @@ async function showFullRecipeDetails() {
 
         // 2. Fetch the related recipes concurrently with parsing the original payload
         // This keeps performance fast without needing the category upfront at initiation
-        const relatedRecipesResponse = await fetch(`${URI}/api/recipes/related/${recipe.category}/${recipe.id}`);
+        const relatedRecipesResponse = await fetch(`${URI}/api/recipes/related/${recipe.category}/${recipe._id}`);
         if (!relatedRecipesResponse.ok) {
             throw new Error('Failed to fetch related recipes');
         }

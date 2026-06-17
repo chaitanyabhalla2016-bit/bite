@@ -27,5 +27,5 @@ export function removeFavorite(unFavRecipeId) {
 export function isFavorite(favRecipeId){
     if (!favRecipeId) return false;
     const favList = getFavorites();
-    return favList.includes(Number(favRecipeId));
+    return favList.includes(favRecipeId);
 }
