@@ -24,7 +24,8 @@ const addRecipe = async (req, res) => {
         const newRecipe = {
             ...req.body
         }
-        const action = await RecipeModel.create(newRecipe);
+        // const action = await RecipeModel.create(newRecipe);
+        const action = await RecipeModel.insertMany(newRecipe);
         res.status(201).json({
             successMessage: 'Recipe added successfully.',
             recipe: newRecipe
@@ -70,12 +71,32 @@ const relatedRecipes = async (req, res) => {
 }
 
 const filteredRecipes = async (req,res) => {
-    const paramsObj = req.params.filters;
-    console.log(typeof(JSON.parse(paramsObj)));
-    // for (let x in req.params.filters){
-    //     console.log(`${x}: ${req.params.filters[x]}`);
-    // }
-    return;
+    const paramsObj = JSON.parse(req.params.filters);
+    if(!paramsObj) {
+        return res.status(400).json({errorMessage:'No filters provided!'});
+    }
+    if(!paramsObj.category || paramsObj.category === 'all') {
+        delete paramsObj.category;
+    }
+    if(!paramsObj.difficulty || paramsObj.difficulty === 'all') {
+        delete paramsObj.difficulty;
+    }
+    if (!paramsObj.cookTime || paramsObj.cookTime === 'all') {
+        delete paramsObj.cookTime;
+    } else {
+        paramsObj.cookTime = { $lte: Number(paramsObj.cookTime) };
+    }
+
+    if(!paramsObj.searchterm || paramsObj.searchterm === '') {
+        delete paramsObj.searchterm;
+    }else {
+        paramsObj.title = { $regex: paramsObj.searchterm, $options: 'i' };
+        delete paramsObj.searchterm;
+    }
+    console.log('Filters:', paramsObj);
+    const filteredRecipes = await RecipeModel.find(paramsObj);
+    res.status(200).json({filteredRecipes:filteredRecipes});
+    console.log('Filtered Recipes:', filteredRecipes);
 }
 
 export {getRecipes,getRecipeById,addRecipe,removeRecipe,updateRecipe,relatedRecipes,filteredRecipes}

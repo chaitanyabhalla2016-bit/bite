@@ -119,14 +119,20 @@ function handleFilterUpdate(event) {
 async function applyFilters(){
 
     // const filteredRecipes = filterRecipes(recipes, activeFilters);
-    const filteredRecipes = await fetch(`${URI}/api/recipes/filter/${activeFilters}`);
+    const filteredRecipesResponse = await fetch(`${URI}/api/recipes/filter/${JSON.stringify(activeFilters)}`);
+    const filteredRecipesData = await filteredRecipesResponse.json();
+    if(!filteredRecipesResponse.ok) {
+        console.log(filteredRecipesData.errorMessage || "Failed to filter recipes. Please try again later.");
+        return;
+    }
+    const filteredRecipes = filteredRecipesData.filteredRecipes;
+    console.log(filteredRecipes);
     displayRecipes(
         filteredRecipes,
         "No recipes found for selected filters."
     );
 }
 function setCategories() {
-    console.log('Setting categories...', recipes);
     const categoriesList =
         setOptions(categoryList(recipes));
 
